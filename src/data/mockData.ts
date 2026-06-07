@@ -220,12 +220,12 @@ export const TASKS_STORAGE_KEY = 'taskflow_tasks';
 export const ACTIVITIES_STORAGE_KEY = 'taskflow_activities';
 
 function getFromStorage<T>(key: string, fallback: T[]): T[] {
-  if (typeof window === 'undefined') return fallback;
+  if (typeof window === 'undefined') return [...fallback];
   try {
     const stored = localStorage.getItem(key);
-    return stored ? (JSON.parse(stored) as T[]) : fallback;
+    return stored ? (JSON.parse(stored) as T[]) : [...fallback];
   } catch {
-    return fallback;
+    return [...fallback];
   }
 }
 

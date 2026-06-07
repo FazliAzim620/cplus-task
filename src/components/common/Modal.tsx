@@ -72,7 +72,7 @@ export const Modal = memo(function Modal({
       />
       <div
         className={cn(
-          'relative z-10 w-full rounded-xl bg-white shadow-xl dark:bg-slate-900',
+          'relative z-10 w-full rounded-xl bg-white shadow-xl dark:bg-slate-900 flex flex-col max-h-[calc(100vh-2rem)]',
           sizeStyles[size]
         )}
       >
@@ -81,7 +81,7 @@ export const Modal = memo(function Modal({
             <Loader size="lg" label="Saving" />
           </div>
         )}
-        <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4 dark:border-slate-700">
+        <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4 dark:border-slate-700 shrink-0">
           <h2 id="modal-title" className="text-lg font-semibold text-slate-900 dark:text-slate-100">
             {title}
           </h2>
@@ -96,9 +96,9 @@ export const Modal = memo(function Modal({
             <X className="h-5 w-5" />
           </Button>
         </div>
-        <div className="px-6 py-4">{children}</div>
+        <div className="px-6 py-4 overflow-y-auto flex-1 min-h-0">{children}</div>
         {footer && (
-          <div className="flex justify-end gap-3 border-t border-slate-200 px-6 py-4 dark:border-slate-700">
+          <div className="flex justify-end gap-3 border-t border-slate-200 px-6 py-4 dark:border-slate-700 shrink-0">
             {footer}
           </div>
         )}
